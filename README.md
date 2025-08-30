@@ -1,4 +1,4 @@
-# Avance-1
+# Avance-2
 Este es un proyecto que va a ayudar a gestionar las calorias en las comidas de una persona en su dia a dia. La idea es registrar cada alimento ingerido junto con su cantidad y valor energético. A partir de estos datos, el algoritmo suma las calorías totales del día, las compara con el objetivo calórico establecido, por ejemplo, para bajar o subir de peso, y genera un reporte que muestra si la persona está dentro, por debajo o por encima de su meta. Creo que es interesante porque así se puede tener un registro exacto de lo que una persona ingiere en el día, y así poder tener un mejor control y salud de su cuerpo. 
 # Algortimo
 Estado inicial
