@@ -1,6 +1,6 @@
 # Avance-3
 
-**Se agregaron funciones a la parte del codigo en Ex_avance3**
+**Se agregaron funciones a la parte del codigo en Ex_avance3. Agregue uso de funciones para el proyecto, la funcion recibe el objetivo (string) y los ints que son para el peso, edad y altura; con condiciones regresa el numero de calorias que el usuario necesita.**
 
 Este es un proyecto que va a ayudar a gestionar las calorias en las comidas de una persona en su dia a dia. La idea es registrar cada alimento ingerido junto con su cantidad y valor energético. A partir de estos datos, el algoritmo suma las calorías totales del día, las compara con el objetivo calórico establecido, por ejemplo, para bajar o subir de peso, y genera un reporte que muestra si la persona está dentro, por debajo o por encima de su meta. Creo que es interesante porque así se puede tener un registro exacto de lo que una persona ingiere en el día, y así poder tener un mejor control y salud de su cuerpo. 
 # Algortimo
