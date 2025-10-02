@@ -1,6 +1,6 @@
 # Avance-5
 
-**Se incluye un ciclo while adentro de un condicional, para que cuando el usuario seleccione la opcion de registrar sus calorias, mientras se siga diciendo que si al seguir registrando calorias, el usuario siga ingresando las cantidades de sus comidas. Al final o cuando el usuario desee terminar, simplemente escribira no, o cualquier otra cosa y se arrojara el resultado de la suma de todas sus caloras en el dia.**
+**Se incluyeron listas para, además de sumar los datos de las comidas, se elija la comida del día donde se guardaran las calorías, así cada que se ingrese una comida del día le puedas asignar un valor de calorías, **
 
 Este es un proyecto que va a ayudar a gestionar las calorias en las comidas de una persona en su dia a dia. La idea es registrar cada alimento ingerido junto con su cantidad y valor energético. A partir de estos datos, el algoritmo suma las calorías totales del día, las compara con el objetivo calórico establecido, por ejemplo, para bajar o subir de peso, y genera un reporte que muestra si la persona está dentro, por debajo o por encima de su meta. Creo que es interesante porque así se puede tener un registro exacto de lo que una persona ingiere en el día, y así poder tener un mejor control y salud de su cuerpo. 
 # Algortimo
