@@ -14,30 +14,38 @@ def calorias_necesarias (objetivo,P,A,E):
 	elif objetivo == "mantener":
 		return 66.47 + (13.75 * P) + (5 * A) - (6.74 * E)
 
-comidas_dia = []
-calorias_comida = []	
-total_calorias = 0
+dias = []	
+total = 0
 	
 if opcion == 4:
-    continuar = "si"
-    while continuar == "si":
-        comida = input ("Comida del dia (desayuno,comida,cena,snack): ")
-        calorias = float(input("Ingresa las calorías de la comida: "))
+    continuar_dia = "si"
+    while continuar_dia == "si":
+        print("Nuevo dia")
+        comidas_dia = []
+        total_dia = 0
+        continuar_comida = "si"
         
-        comidas_dia = comidas_dia + [comida]
-        calorias_comida = calorias_comida + [calorias]
+        while continuar_comida == "si":
+            comida = input ("Comida del dia (desayuno,comida,cena,snack): ")
+            calorias = float(input("Ingresa las calorías de la comida: "))
+            comidas_dia.append([comida,calorias])
+            total_dia = total_dia + calorias
         
-        total_calorias = total_calorias + calorias
-        
-        print ("Tus calorias hasta ahora son:",total_calorias)
-        continuar = input ("quieres seguir registrando comidas (si/no):")
+            continuar_comida = input ("quieres seguir registrando comidas (si/no):")
       
+        dias.append(comidas_dia)
+        total = total + total_dia
+    
+        print("Total de este día:", total_dia)
+        continuar_dia = input("¿Registrar otro día? (si/no): ")
            
 print (calorias_necesarias("subir",85,178,18))
 print (calorias_necesarias("bajar",85,178,18))
 print (calorias_necesarias("mantener",85,178,18))
-print ("calorias del dia:", total_calorias)
+print ("calorias del dia:", total)
 
 	
 	
+	
+
 
