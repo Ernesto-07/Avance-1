@@ -6,17 +6,13 @@ Este es un proyecto que va a ayudar a gestionar las calorias en las comidas de u
 # Algortimo
 Estado inicial
 
-1. Pedir datos del usuario.
-
-2. Pedir al usuario el objetivo (subir,bajar o mantener peso)
+1. Pedir datos del usuario. (Peso, altura, edad y objetivo(subir,bajar o mantener peso))
    
-3. Establecer una cantidad de calorias al dia ideales para el objetivo
+2. Establecer una cantidad de calorias al dia ideales para el objetivo
    
-4. Registrar datos de sus comidas
+3. Registrar datos de sus comidas
    
-5. Total de calorias
-   
-6. Salir 
+4. Salir 
 
 Leer la opcion del usuario
 
@@ -29,43 +25,32 @@ Si opcion = 1
    
    Preguntar edad (numero)
 
+   Preguntar objetivo (subir,bajar o mantener peso)
+
 
 Si opcion = 2
-   Subir de peso (si/no)
+
+  Establecer calorias ideales de acuerdo al objetivo con las siguientes formulas.
+  
+     Calcular calorias al dia con la formula si usuario selecciona Subir de peso
+     66.47 + (13.75 x peso) + (5 x estatura) – (6.74 x edad) + 500
    
-   Bajar de peso (si/no)
+     Calcular calorias al dia con la formula si usuario selecciona Bajar de peso
+     66.47 + (13.75 x peso) + (5 x estatura) – (6.74 x edad) - 500
    
-   Mantener peso  (si/no)
-   
+     Calcular calorias al dia con la formula si usuario selecciona Mantener peso
+     66.47 + (13.75 x peso) + (5 x estatura) – (6.74 x edad)
 
 Si opcion = 3
 
-  Calcular calorias al dia con la formula si usuario selecciona Subir de peso
-  66.47 + (13.75 x peso) + (5 x estatura) – (6.74 x edad) + 500
-
-  Calcular calorias al dia con la formula si usuario selecciona Bajar de peso
-  66.47 + (13.75 x peso) + (5 x estatura) – (6.74 x edad) - 500
-
-  Calcular calorias al dia con la formula si usuario selecciona Mantener peso
-  66.47 + (13.75 x peso) + (5 x estatura) – (6.74 x edad)
-
-Mientras opcion = 4
-
   Inserte cantidad de calorias de su comida (numero)
   
-  Guardar datos
+  Guardar datos y sumarlos. 
+
+  Determinar si se logro el objetivo. 
   
 
-Si opcion = 5
-
-  Leer datos
-  
-  Sumar todos los datos y darle el resultado al usuario
-  res = (Dato1 + Dato2 + Dato3 + Dato4 + Dato5 + Dato6)
-  print(res)
-     
-
-Si opcion = 6 
+Si opcion = 4
 
 Cerrar el programa
 
