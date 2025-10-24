@@ -1,14 +1,51 @@
-from datetime import date
+"""
+Registro y cálculo de calorías - Proyecto simple
+
+El programa permite al usuario introducir sus datos 
+(peso, altura, edad y objetivo), calcular una cantidad ideal 
+aproximada de calorías según una fórmula modificada y registrar 
+las comidas diarias. Los registros se guardan en un archivo CSV.
+"""
+
+from datetime import date  #Para obtener la fecha actual
 iniciar = input("Quisiera iniciar? (si/no):").lower()
 
+
 def pedir_datos():
+    """
+    Solicita los datos personales del usuario.
+
+    Uso de funciones y conversión de tipos:
+    - input(): para pedir datos al usuario
+    - float(): para convertir a números decimales
+    - int(): para convertir a entero
+
+    Devuelve: (peso, altura, edad, objetivo)
+    """
+        
     P = float(input("Dame tu peso en kg: "))
     A = float(input("Dame tu altura en cm: "))
     E = float(input("Dame tu edad: "))
-    objetivo = int(input("Dime cuál es tu objetivo (subir = 1, bajar = 2, mantener = 3): "))
+    objetivo = int(
+        input(
+            "Dime cuál es tu objetivo (subir = 1, bajar = 2, mantener = 3): "
+        ))
     return P, A, E, objetivo
 
+
 def calorias_necesarias(objetivo, P, A, E):
+    """
+    Calcula calorías según objetivo y datos del usuario.
+
+    Parámetros:
+        objetivo (int): 1=subir, 2=bajar, 3=mantener
+        P (float): peso en kg
+        A (float): altura en cm
+        E (float): edad en años
+
+    Devuelve:
+        float: cantidad diaria estimada de calorías
+    """
     objetivos = {1: "subir", 2: "bajar", 3: "mantener"}
     objetivo_elegido = objetivos[objetivo]
     if objetivo_elegido == "subir":
@@ -18,12 +55,30 @@ def calorias_necesarias(objetivo, P, A, E):
     elif objetivo_elegido == "mantener":
         return 66.47 + (13.75 * P) + (5 * A) - (6.74 * E)
 
+
 def calcular_calorias_ideales(objetivo, P, A, E):
+    """
+    Calcula y muestra la cantidad ideal de calorías del usuario.
+
+    Llama a calorias_necesarias().
+
+    Devuelve: calorías ideales
+    """
     calorias_ideales = calorias_necesarias(objetivo, P, A, E)
     print("Tu cantidad ideal de calorías:", calorias_ideales)
     return calorias_ideales
 
+
 def registrar_comida():
+    """
+    Registra una comida y su cantidad de calorías.
+
+    Uso de funciones:
+    - input() para solicitar tipo de comida y calorías
+    - float() para convertir calorías a número decimal
+
+    Devuelve: (comida, calorias)
+    """
     while True:
         comida = input("Comida del día (desayuno, comida, cena, snack): ")
         if comida in ["desayuno", "comida", "cena", "snack"]:
@@ -33,7 +88,20 @@ def registrar_comida():
     calorias = float(input("Ingresa las calorías de la comida: "))
     return comida, calorias
 
+
 def registrar_dia(objetivo, calorias_ideales):
+    """
+    Permite registrar varias comidas de un día y calcula el total.
+
+    Llama a:
+        - registrar_comida()
+        - evaluar_objetivo()
+
+    Devuelve:
+        (comidas_dia, total_dia)
+        comidas_dia: lista de listas [[comida, calorias],...]
+        total_dia: suma total de calorías del día
+    """
     comidas_dia = []
     total_dia = 0
     continuar_comida = "si"
@@ -44,7 +112,9 @@ def registrar_dia(objetivo, calorias_ideales):
         total_dia += calorias
 
         while True:
-            continuar_comida = input("Quieres seguir registrando comidas (si/no)?: ").lower()
+            continuar_comida = input(
+                "¿Quieres seguir registrando comidas (si/no)?: "
+            ).lower()
             if continuar_comida in ["si", "no"]:
                 break
             else:
@@ -53,7 +123,16 @@ def registrar_dia(objetivo, calorias_ideales):
     evaluar_objetivo(objetivo, total_dia, calorias_ideales)
     return comidas_dia, total_dia
 
+
 def guardar_csv(objetivo, calorias_ideales):
+    """
+    Guarda los registros de un día en un archivo CSV.
+
+    Llama a:
+        registrar_dia()
+
+    No devuelve nada.
+    """
     comidas_dia, total_dia = registrar_dia(objetivo, calorias_ideales)
     fecha = date.today()
 
@@ -61,7 +140,18 @@ def guardar_csv(objetivo, calorias_ideales):
         for comida, calorias in comidas_dia:
             file.write(f"{fecha},{comida},{calorias},{total_dia}\n")
 
+
 def evaluar_objetivo(objetivo, total_dia, calorias_ideales):
+    """
+    Evalúa si el usuario alcanzó su meta diaria de calorías.
+
+    Parámetros:
+        objetivo (int): 1=subir, 2=bajar, 3=mantener
+        total_dia (float): calorías consumidas
+        calorias_ideales (float): meta de calorias diaria
+
+    Imprime si se logró el objetivo.
+    """
     if calorias_ideales > 0:
         if objetivo == 1:
             if total_dia >= calorias_ideales:
@@ -74,12 +164,16 @@ def evaluar_objetivo(objetivo, total_dia, calorias_ideales):
             else:
                 print("No lograste tu objetivo")
         elif objetivo == 3:
-            if (total_dia >= calorias_ideales - 200) and (total_dia <= calorias_ideales + 200):
+            if (
+                total_dia >= calorias_ideales - 200
+                and total_dia <= calorias_ideales + 200
+            ):
                 print("Lograste tu objetivo")
             else:
                 print("No lograste tu objetivo")
     else:
         print("Aún no se establece cantidad ideal")
+
 
 if iniciar == "si":
     print("""
@@ -117,3 +211,5 @@ if iniciar == "si":
             print("Opción inválida")
 else:
     print("Okay")
+
+#Acaba el programa
